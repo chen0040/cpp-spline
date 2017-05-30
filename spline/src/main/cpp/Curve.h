@@ -40,7 +40,7 @@ protected:
 	int _steps;
 public:
 	void increment_steps(int steps) { _steps+=steps; }
-	void set_step(int steps) { _steps = steps; }
+	void set_steps(int steps) { _steps = steps; }
 };
 
 #endif

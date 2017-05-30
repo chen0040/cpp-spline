@@ -19,18 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\cpp\Bezier.h" />
-    <ClInclude Include="src\cpp\BSpline.h" />
-    <ClInclude Include="src\cpp\CatmullRom.h" />
-    <ClInclude Include="src\cpp\Curve.h" />
-    <ClInclude Include="src\cpp\Vector.h" />
+    <ClInclude Include="src\main\cpp\Bezier.h" />
+    <ClInclude Include="src\main\cpp\BSpline.h" />
+    <ClInclude Include="src\main\cpp\CatmullRom.h" />
+    <ClInclude Include="src\main\cpp\Curve.h" />
+    <ClInclude Include="src\main\cpp\Vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\cpp\Bezier.cpp" />
-    <ClCompile Include="src\cpp\BSpline.cpp" />
-    <ClCompile Include="src\cpp\CatmullRom.cpp" />
-    <ClCompile Include="src\cpp\Curve.cpp" />
-    <ClCompile Include="src\cpp\Vector.cpp" />
+    <ClCompile Include="src\main\cpp\Bezier.cpp" />
+    <ClCompile Include="src\main\cpp\BSpline.cpp" />
+    <ClCompile Include="src\main\cpp\CatmullRom.cpp" />
+    <ClCompile Include="src\main\cpp\Curve.cpp" />
+    <ClCompile Include="src\main\cpp\Vector.cpp" />
+    <ClCompile Include="src\test\cpp\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -40,7 +41,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
