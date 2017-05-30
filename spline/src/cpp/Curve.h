@@ -1,31 +1,31 @@
-#ifndef _H_GL_CURVE_H
-#define _H_GL_CURVE_H
+#ifndef _H__CURVE_H
+#define _H__CURVE_H
 
-#include "GLVector.h"
+#include "Vector.h"
 #include <vector>
 #include <cassert>
 
-class GLCurve
+class Curve
 {
 public:
-	GLCurve();
-	virtual ~GLCurve();
+	Curve();
+	virtual ~Curve();
 
 protected:
-	std::vector<GLVector> m_points;
+	std::vector<Vector> _way_points;
 public:
-	void AddPoint(const GLVector& point);
-	void AddNode(const GLVector& node);
-	void Clear();
+	void add_way_point(const Vector& point);
+	void clear();
 
 protected:
-	virtual void OnNewControlPointAdded()=0;
+	void add_node(const Vector& node);
+	virtual void _on_way_point_added()=0;
 
 protected:
-	std::vector<GLVector> m_nodes;
+	std::vector<Vector> m_nodes;
 	std::vector<double> m_distances;
 public:
-	GLVector GetNode(int i) const { return m_nodes[i]; }
+	Vector GetNode(int i) const { return m_nodes[i]; }
 	double GetDistance(int i) const { return m_distances[i]; }
 	bool ReachEnd(int i) const { return static_cast<int>(m_nodes.size()) <= i; }
 	int GetNodeCount() const {  return static_cast<int>(m_nodes.size()); }

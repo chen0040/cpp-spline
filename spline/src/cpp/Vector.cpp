@@ -1,8 +1,8 @@
-#include "GLVector.h"
+#include "Vector.h"
 #include <cmath>
 #include <sstream>
 
-GLVector::GLVector()
+Vector::Vector()
 : x(0)
 , y(0)
 , z(0)
@@ -10,19 +10,19 @@ GLVector::GLVector()
 
 }
 
-GLVector::GLVector(double _x, double _y, double _z)
+Vector::Vector(double _x, double _y, double _z)
 : x(_x)
 , y(_y)
 , z(_z)
 {
 }
 
-double GLVector::length() const
+double Vector::length() const
 {
 	return sqrt(x*x + y* y + z*z);
 }
 
-bool GLVector::operator==(const GLVector& rhs) const
+bool Vector::operator==(const Vector& rhs) const
 {
 	if(this->x== rhs.x && this->y == rhs.y && this->z == rhs.z)
 	{
@@ -31,7 +31,7 @@ bool GLVector::operator==(const GLVector& rhs) const
 	return false;
 }
 
-bool GLVector::operator != (const GLVector& rhs) const
+bool Vector::operator != (const Vector& rhs) const
 {
 	if(this->x== rhs.x && this->y == rhs.y && this->z == rhs.z)
 	{
@@ -40,7 +40,7 @@ bool GLVector::operator != (const GLVector& rhs) const
 	return true;
 }
 
-bool GLVector::operator<=(const GLVector& rhs) const
+bool Vector::operator<=(const Vector& rhs) const
 {
 	if(this->x <= rhs.x && this->y <= rhs.y && this->z <= rhs.z)
 	{
@@ -49,7 +49,7 @@ bool GLVector::operator<=(const GLVector& rhs) const
 	return false;
 }
 
-bool GLVector::operator>=(const GLVector& rhs) const
+bool Vector::operator>=(const Vector& rhs) const
 {
 	if(this->x >= rhs.x && this->y >= rhs.y && this->z >= rhs.z)
 	{
@@ -58,28 +58,28 @@ bool GLVector::operator>=(const GLVector& rhs) const
 	return false;
 }
 
-GLVector GLVector::cross(const GLVector& rhs) const
+Vector Vector::cross(const Vector& rhs) const
 {
 	double vx=this->y * rhs.z - this->z * rhs.y;
 	double vy= - (this->x * rhs.z - this->z * rhs.x);
 	double vz=this->x * rhs.y - this->y * rhs.x;
 
-	return GLVector(vx, vy, vz);
+	return Vector(vx, vy, vz);
 }
 
-double GLVector::dot(const GLVector& rhs) const
+double Vector::dot(const Vector& rhs) const
 {
 	return this->x * rhs.x + this->y * rhs.y + this->z * rhs.z;
 }
 
-double GLVector::lengthSq() const
+double Vector::lengthSq() const
 {
 	return this->x * this->x + this->y * this->y + this->z * this->z;
 }
 
-GLVector GLVector::Truncate(double max_value) const
+Vector Vector::Truncate(double max_value) const
 {
-	GLVector v(x, y, z);
+	Vector v(x, y, z);
 	double len=this->length();
 	if(len == 0)
 	{
@@ -96,29 +96,29 @@ GLVector GLVector::Truncate(double max_value) const
 	return v;
 }
 
-GLVector GLVector::normalize() const
+Vector Vector::normalize() const
 {
 	double vl = this->length();
 	if(vl == 0)
 	{
-		return GLVector();
+		return Vector();
 	}
 
 	double vx = this->x / vl;
 	double vy = this->y / vl;
 	double vz= this->z / vl;
 
-	return GLVector(vx, vy, vz);
+	return Vector(vx, vy, vz);
 }
 
-GLVector::GLVector(const GLVector& rhs)
+Vector::Vector(const Vector& rhs)
 {
 	this->x=rhs.x;
 	this->y=rhs.y;
 	this->z=rhs.z;
 }
 
-GLVector& GLVector::operator=(const GLVector& rhs)
+Vector& Vector::operator=(const Vector& rhs)
 {
 	this->x=rhs.x;
 	this->y=rhs.y;
@@ -127,7 +127,7 @@ GLVector& GLVector::operator=(const GLVector& rhs)
 	return *this;
 }
 
-GLVector& GLVector::operator+=(const GLVector& rhs)
+Vector& Vector::operator+=(const Vector& rhs)
 {
 	this->x += rhs.x;
 	this->y += rhs.y;
@@ -136,7 +136,7 @@ GLVector& GLVector::operator+=(const GLVector& rhs)
 	return *this;
 }
 
-GLVector& GLVector::operator-=(const GLVector& rhs)
+Vector& Vector::operator-=(const Vector& rhs)
 {
 	this->x -= rhs.x;
 	this->y -= rhs.y;
@@ -145,7 +145,7 @@ GLVector& GLVector::operator-=(const GLVector& rhs)
 	return *this;
 }
 
-GLVector& GLVector::operator*=(double value)
+Vector& Vector::operator*=(double value)
 {
 	this->x *= value;
 	this->y *= value;
@@ -154,7 +154,7 @@ GLVector& GLVector::operator*=(double value)
 	return *this;
 }
 
-GLVector& GLVector::operator/=(double value)
+Vector& Vector::operator/=(double value)
 {
 	this->x /= value;
 	this->y /= value;
@@ -163,44 +163,44 @@ GLVector& GLVector::operator/=(double value)
 	return *this;
 }
 
-std::string GLVector::toString() const
+std::string Vector::toString() const
 {
 	std::ostringstream oss;
 	oss << "[" << x << ", " << y << ", " << z << "]";
 	return oss.str();
 }
 
-GLVector operator+(const GLVector& v1, const GLVector& v2)
+Vector operator+(const Vector& v1, const Vector& v2)
 {
-	GLVector v=v1;
+	Vector v=v1;
 	v+=v2;
 	return v;
 }
 
-GLVector operator-(const GLVector& v1, const GLVector& v2)
+Vector operator-(const Vector& v1, const Vector& v2)
 {
-	GLVector v=v1;
+	Vector v=v1;
 	v-=v2;
 	return v;
 }
 
-GLVector operator*(const GLVector& v1, double value)
+Vector operator*(const Vector& v1, double value)
 {
-	GLVector v=v1;
+	Vector v=v1;
 	v*=value;
 	return v;
 }
 
-GLVector operator/(const GLVector& v1, double value)
+Vector operator/(const Vector& v1, double value)
 {
-	GLVector v=v1;
+	Vector v=v1;
 	v/=value;
 	return v;
 }
 
-GLVector operator*(double value, const GLVector& v1)
+Vector operator*(double value, const Vector& v1)
 {
-	GLVector v=v1;
+	Vector v=v1;
 	v*=value;
 	return v;
 }

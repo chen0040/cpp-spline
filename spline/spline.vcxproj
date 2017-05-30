@@ -19,16 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\cpp\GLBezier.h" />
-    <ClInclude Include="src\cpp\GLBSpline.h" />
-    <ClInclude Include="src\cpp\GLCurve.h" />
-    <ClInclude Include="src\cpp\GLVector.h" />
+    <ClInclude Include="src\cpp\Bezier.h" />
+    <ClInclude Include="src\cpp\BSpline.h" />
+    <ClInclude Include="src\cpp\CatmullRom.h" />
+    <ClInclude Include="src\cpp\Curve.h" />
+    <ClInclude Include="src\cpp\Vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\cpp\GLBezier.cpp" />
-    <ClCompile Include="src\cpp\GLBSpline.cpp" />
-    <ClCompile Include="src\cpp\GLCurve.cpp" />
-    <ClCompile Include="src\cpp\GLVector.cpp" />
+    <ClCompile Include="src\cpp\Bezier.cpp" />
+    <ClCompile Include="src\cpp\BSpline.cpp" />
+    <ClCompile Include="src\cpp\CatmullRom.cpp" />
+    <ClCompile Include="src\cpp\Curve.cpp" />
+    <ClCompile Include="src\cpp\Vector.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

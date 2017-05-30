@@ -1,32 +1,32 @@
-#include "GLCurve.h"
+#include "Curve.h"
 
-GLCurve::GLCurve()
+Curve::Curve()
 : m_steps(100)
 , m_bShowLineSegments(false)
 {
 
 }
 
-GLCurve::~GLCurve()
+Curve::~Curve()
 {
 }
 
-void GLCurve::Clear()
+void Curve::clear()
 {
 	m_nodes.clear();
-	m_points.clear();
+	_way_points.clear();
 	m_distances.clear();
 }
 
-void GLCurve::AddPoint(const GLVector& point)
+void Curve::add_way_point(const Vector& point)
 {
-	m_points.push_back(point);
-	OnNewControlPointAdded();
+	_way_points.push_back(point);
+	_on_way_point_added();
 }
 
 
 
-void GLCurve::AddNode(const GLVector& node)
+void Curve::add_node(const Vector& node)
 {
 	m_nodes.push_back(node);
 
