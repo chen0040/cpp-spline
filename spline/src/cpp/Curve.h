@@ -22,29 +22,25 @@ protected:
 	virtual void _on_way_point_added()=0;
 
 protected:
-	std::vector<Vector> m_nodes;
-	std::vector<double> m_distances;
+	std::vector<Vector> _nodes;
+	std::vector<double> _distances;
 public:
-	Vector GetNode(int i) const { return m_nodes[i]; }
-	double GetDistance(int i) const { return m_distances[i]; }
-	bool ReachEnd(int i) const { return static_cast<int>(m_nodes.size()) <= i; }
-	int GetNodeCount() const {  return static_cast<int>(m_nodes.size()); }
-	bool IsNull() { return m_nodes.empty(); }
-	double GetTotalDistance() const
+	Vector node(int i) const { return _nodes[i]; }
+	double length_from_starting_point(int i) const { return _distances[i]; }
+	bool has_next_node(int i) const { return static_cast<int>(_nodes.size()) > i; }
+	int node_count() const {  return static_cast<int>(_nodes.size()); }
+	bool is_empty() { return _nodes.empty(); }
+	double total_length() const
 	{
-		assert(!m_distances.empty());
-		return m_distances[m_distances.size() - 1];
+		assert(!_distances.empty());
+		return _distances[_distances.size() - 1];
 	}
 
 protected:
-	int m_steps;
+	int _steps;
 public:
-	void increment_steps(int steps) { m_steps+=steps; }
-
-protected:
-	bool m_bShowLineSegments;
-public:
-	void ShowLineSegment(bool bShow) { m_bShowLineSegments=bShow; }
+	void increment_steps(int steps) { _steps+=steps; }
+	void set_step(int steps) { _steps = steps; }
 };
 
 #endif
