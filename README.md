@@ -87,21 +87,23 @@ int main(char** argv, int argc) {
 	delete curve;
 }
 ```
-
-## Building and running using cmake
+## Building
 cpp-spline comes bundled with sln and vcxproj files so that it can be directly opened and built using Visual Studio in windows.
 
 
 cpp-spline can now be build using cmake as well.
 
 Cmake can be installed in debian based systems by 
-``` sudo apt install cmake 
+
+```bash
+	sudo apt install cmake 
 ```
 ### Build instructions (linux)
-    ```git clone https://github.com/chen0040/cpp-spline.git
-       mkdir build
-       cd build
-       cmake .. 
-       make all
-       ./spline_app
-    ```
+```bash
+     	git clone https://github.com/chen0040/cpp-spline.git
+       	mkdir build
+       	cd build
+       	cmake .. 
+       	make all
+       	./spline_app
+```
