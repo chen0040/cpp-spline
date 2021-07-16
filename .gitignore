@@ -36,3 +36,5 @@ Release
 *.exe
 *.out
 *.app
+build/*
+build/
